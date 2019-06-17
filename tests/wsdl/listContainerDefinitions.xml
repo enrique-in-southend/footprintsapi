@@ -1,0 +1,48 @@
+ <?xml version="1.0"?>
+<Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<listContainerDefinitionsResponse xmlns:ns2="http://externalapi.business.footprints.numarasoftware.com/">
+			<return>
+				<_definitions>
+					<_definitionId>
+						90217
+					</_definitionId>
+					<_subtypeName>
+						WORKSPACE
+					</_subtypeName>
+					<_definitionName>
+						CUSTOMER_SERVICE
+					</_definitionName>
+					<_definitionDescription>
+					</_definitionDescription>
+				</_definitions>
+				<_definitions>
+					<_definitionId>
+						12790
+					</_definitionId>
+					<_subtypeName>
+						ADDRESS_BOOK
+					</_subtypeName>
+					<_definitionName>
+						Customer Address Book
+					</_definitionName>
+					<_definitionDescription>
+					</_definitionDescription>
+				</_definitions>
+				<_definitions>
+					<_definitionId>
+						59082
+					</_definitionId>
+					<_subtypeName>
+						WORKSPACE
+					</_subtypeName>
+					<_definitionName>
+						IT Department
+					</_definitionName>
+					<_definitionDescription>
+					</_definitionDescription>
+				</_definitions>
+			</return>
+		</listContainerDefinitionsResponse>
+	</Body>
+</Envelope>

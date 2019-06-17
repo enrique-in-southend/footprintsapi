@@ -1,0 +1,8 @@
+-r base.txt
+
+pep8==1.7.1
+pydocstyle==3.0.0 
+snowballstemmer==1.2.1
+black==19.3b0 
+click==7.0 
+toml==0.10.0
