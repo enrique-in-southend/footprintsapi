@@ -1,12 +1,20 @@
 """Base FootprintsObject."""
 
-from .mixins.common import CommonMixin, CustomAttributesMixin, COMMON_ATTRS
-from .utils import pretty_attributes, to_dict, parse_keys, get_attributes
-from footprintsapi.utils import obj_or_id, cleanup_args
+from .utils import (
+    pretty_attributes,
+    to_dict,
+    parse_keys,
+    get_attributes,
+    obj_or_id,
+    cleanup_args,
+)
 from .requester import Requester
 from typing import Union, Optional
 
-from .mixins.get import (
+from .mixins import (
+    CommonMixin,
+    CustomAttributesMixin,
+    COMMON_ATTRS,
     GetItemIdMixin,
     GetItemDetailsMixin,
     GetContactAssociatedTickets,
@@ -16,14 +24,10 @@ from .mixins.get import (
     ListQuickTemplatesMixin,
     ListSearchesMixin,
     RunSearchMixin,
-)
-from .mixins.update import (
     EditCIMixin,
     EditContactMixin,
     EditItemMixin,
     EditTicketMixin,
-)
-from .mixins.post import (
     CreateCIMixin,
     CreateContactMixin,
     CreateItemMixin,

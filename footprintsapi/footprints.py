@@ -5,7 +5,7 @@ either directly or indirectly accessible from.
 """
 
 from .models import Ticket, Item, FootprintsBaseObject
-from .mixins.common import CommonMixin
+from .mixins import CommonMixin
 from .requester import Requester
 from .utils import cleanup_args
 from requests import Response
