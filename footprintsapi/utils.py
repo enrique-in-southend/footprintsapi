@@ -166,33 +166,6 @@ def pretty_attributes(
     return pretty_str
 
 
-def obj_or_id(
-    parameter: Union[int, str, object],
-    param_name: str,
-    object_types: Union[Tuple[object], List[object], object],
-) -> str:
-    """Return the object's id."""
-    if type(object_types) not in [list, tuple]:
-        object_types = (object_types,)
-    if isinstance(parameter, str) and not parameter.isnumeric():
-        return str(parameter)
-    try:
-        return f"{int(parameter)}"
-    except (ValueError, TypeError):
-        for obj_type in object_types:
-            if isinstance(parameter, obj_type):
-                try:
-                    return str(parameter.id)
-                except Exception:
-                    break
-
-        _obj_types = ",".join([obj_type.__name__ for obj_type in object_types])
-        message = (
-            f"Parameter {param_name} must be of type(s) {_obj_types} or int."
-        )
-        raise TypeError(message)
-
-
 def get_attributes(
     fields_to_iterate: list, attributes_to_fetch: list = None
 ) -> dict:
@@ -213,3 +186,11 @@ def get_attributes(
             attrs.append((key, value))
 
     return attrs
+
+
+def set_default_attr(
+    obj: object, attr_name_to_set: str, value, default_value=None
+):
+    """Set a default attr if it doesn't already exist."""
+    if not hasattr(obj, attr_name_to_set):
+        setattr(obj, attr_name_to_set, value or default_value)

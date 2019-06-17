@@ -5,7 +5,6 @@ from .utils import (
     to_dict,
     parse_keys,
     get_attributes,
-    obj_or_id,
     cleanup_args,
 )
 from .requester import Requester
@@ -89,7 +88,6 @@ class FootprintsObject(object):
         :param attributes: The JSON/dict/object to build this object with.
         """
         self.attributes = attributes
-
         if hasattr(attributes, "_itemFields"):
             self.attributes = dict(
                 get_attributes(

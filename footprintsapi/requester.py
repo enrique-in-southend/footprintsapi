@@ -1,8 +1,9 @@
 """Module housing the SOAP request handler."""
 
+from .utils import parse_keys, set_default_attr
 from requests.auth import HTTPBasicAuth
 from requests import Response, Session
-from footprintsapi.exceptions import (
+from .exceptions import (
     ResourceDoesNotExist,
     FootprintsException,
     Unauthorized,
@@ -12,7 +13,6 @@ from footprintsapi.exceptions import (
 from zeep.transports import Transport
 from zeep.cache import SqliteCache
 from zeep import Client, Settings
-from .utils import parse_keys
 from typing import Optional
 from http import HTTPStatus
 import requests
@@ -111,21 +111,19 @@ class Requester:
             # Doesn't always return a regular json response and can sometimes
             # return objects.
             if hasattr(response, "__dict__"):
-                setattr(response, "_itemId", params.get("_itemId", None))
-                setattr(
+                set_default_attr(response, "_itemId", params.get("_itemId"))
+                set_default_attr(
                     response,
                     "_itemDefinitionId",
-                    params.get("_itemDefinitionId", None),
+                    params.get("_itemDefinitionId"),
                 )
-                setattr(
+                set_default_attr(
                     response,
                     "_ticketDefinitionId",
-                    params.get("_itemDefinitionId", None),
+                    params.get("_itemDefinitionId"),
                 )
-                setattr(
-                    response,
-                    "_ticketNumber",
-                    params.get("_ticketNumber", None),
+                set_default_attr(
+                    response, "_ticketNumber", params.get("_ticketNumber")
                 )
 
             # Add response to internal cache
