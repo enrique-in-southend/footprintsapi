@@ -15,6 +15,7 @@ This wrapper integrates with Footprint's SOAP endpoints. What is Footprints? Che
 
 - Download the repo.
 - Clone the repo: `https://github.com/Jesus-E-Rodriguez/footprintsapi.git`
+- Add as a project dependency: `git+https://github.com/Jesus-E-Rodriguez/footprintsapi.git@vtag#`
 
 
 ## What's included
