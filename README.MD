@@ -96,7 +96,7 @@ Additional attributes can also be passed in as needed. When the object is instan
 with optional parameters, the functions that require those same parameters will automatically
 use them if not passed in.
 
-For testing purposes an example `wsdl` file has been included in `tests/wsdl/`. In order to get a deeper understanding of the Footprint's architecture the use of [SOAP UI](https://www.soapui.org/) is recommended.
+For testing purposes an example `wsdl` file has been included in `tests/wsdl/`. In order to get a deeper understanding of the Footprint's architecture the use of [SOAP UI](https://www.soapui.org/) is recommended. More documentation can be found in the [Web service definitions guide](https://docs.bmc.com/docs/fpsc121/files/495323458/669670276/3/1508751777198/API_Web_Services_definitions.pdf#createCI)
 
 
 ## API Endpoints
