@@ -9,6 +9,7 @@ This wrapper integrates with Footprint's SOAP endpoints. What is Footprints? Che
 - [Local Deploy Steps](#local-deploy-steps)
 - [Notes](#notes)
 - [API Endpoints](#api-endpoints)
+- [To Do](#to-do)
 
 ## Quick start
 
@@ -58,7 +59,7 @@ footprintsapi/
 
 Install the required dependencies:
 
-        $ pip install -r requirements/local.text
+        $ pip install -r requirements/local.txt
 
 ## Notes
 
@@ -94,6 +95,8 @@ Additional attributes can also be passed in as needed. When the object is instan
 with optional parameters, the functions that require those same parameters will automatically
 use them if not passed in.
 
+For testing purposes an example `wsdl` file has been included in `tests/wsdl/`. In order to get a deeper understanding of the Footprint's architecture the use of [SOAP UI](https://www.soapui.org/) is recommended.
+
 
 ## API Endpoints
 
@@ -121,3 +124,6 @@ Endpoint  | Method | Parameters (Bolded are required) | Returns | Additional Not
 *"listQuickTemplates"* | `fp.get_quick_templates(...)` |  item_definition_id, submitter | List of dictionaries |
 *"listSearches"* | `fp.get_searches(...)` |  item_type_name, submitter | List of dictionaries | You can use this parameter to retrieve item name only from the existing Saved Searches in the FootPrints application.
 *"runSearch"* | `fp.get_search(...)` | search_id, submitter | Dict | You can retrieve the item_type_name parameter to get the item ID to run the search query from the existing Saved Searches only. **Note: You must create Saved Searches in the FootPrints application before using the web service to run the search queries. You cannot create Saved Searches by using the web services.**
+
+## To Do
+Create functional tests.
