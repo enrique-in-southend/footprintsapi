@@ -5,11 +5,11 @@ either directly or indirectly accessible from.
 """
 
 from .models import Ticket, Item, FootprintsBaseObject
-from .mixins import CommonMixin
+from typing import Union, Optional, NoReturn
 from .requester import Requester
+from .mixins import CommonMixin
 from .utils import cleanup_args
 from requests import Response
-from typing import Union, Optional
 from zeep import Settings
 
 
@@ -24,7 +24,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         settings: Optional[object] = None,
         storage_url: Optional[str] = None,
         timeout: Optional[int] = 60,
-    ) -> None:
+    ) -> NoReturn:
         """Init function.
 
         :param client_id: The username/client id.

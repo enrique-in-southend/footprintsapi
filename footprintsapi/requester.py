@@ -10,6 +10,7 @@ from .exceptions import (
     BadRequest,
     Forbidden,
 )
+from typing import NoReturn
 from zeep.transports import Transport
 from zeep.cache import SqliteCache
 from zeep import Client, Settings
@@ -30,7 +31,7 @@ class Requester:
         settings: Optional[Settings] = None,
         storage_url: Optional[str] = None,
         timeout: Optional[int] = 60,
-    ) -> None:
+    ) -> NoReturn:
         """Init function."""
         self.base_url = base_url
         self.client_id = client_id

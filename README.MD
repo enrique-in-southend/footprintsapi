@@ -15,7 +15,10 @@ This wrapper integrates with Footprint's SOAP endpoints. What is Footprints? Che
 
 - Download the repo.
 - Clone the repo: `https://github.com/Jesus-E-Rodriguez/footprintsapi.git`
-- Add as a project dependency: `git+https://github.com/Jesus-E-Rodriguez/footprintsapi.git@vtag#`
+
+Add as a project dependency:
+
+    $ pip install footprintsapi
 
 
 ## What's included
@@ -73,7 +76,7 @@ called through the use of a `Footprints` Object.
 Instantiate the object with the following attributes:
 
 ```python
-from footprints import Footprints
+from footprintsapi import Footprints
 import env as settings
 
 attributes = {
@@ -92,7 +95,7 @@ CLIENT_SECRET = "Agent password"
 BASE_URL = "https://{Your hostname here}/footprints/servicedesk/externalapisoap/ExternalApiServicePort?wsdl"
 ```
 
-Additional attributes can also be passed in as needed. When the object is instantiated 
+Additional attributes can also be passed in as needed. When the object is instantiated
 with optional parameters, the functions that require those same parameters will automatically
 use them if not passed in.
 
@@ -101,8 +104,8 @@ For testing purposes an example `wsdl` file has been included in `tests/wsdl/`. 
 
 ## API Endpoints
 
-Endpoint  | Method | Parameters (Bolded are required) | Returns | Additional Notes 
-------------- | ------------- | ------------- | ------------- | ------------- 
+Endpoint  | Method | Parameters (Bolded are required) | Returns | Additional Notes
+------------- | ------------- | ------------- | ------------- | -------------
 *"createCI"* | `fp.create_ci(...)` | **cmdb_definition_id**, cifields, status, submitter | CI ID | **cmdb_definition_id** can be found using `fp.list_container_definitions()`
 *"createContact"* | `fp.create_contact(...)` | **address_book_definition_id**, **contact_fields**, submitter | Contact ID |  **address_book_definition_id** can be found using `fp.list_container_definitions()`
 *"createItem"* | `fp.create_item(...)` | **item_definition_id**, **item_fields**, quick_template_id, assignees, submitter | Contact ID | **item_definition_id** can be fetched by using `fp.list_container_definitions()`
@@ -112,10 +115,10 @@ Endpoint  | Method | Parameters (Bolded are required) | Returns | Additional Not
 *"editCI"* | `fp.update_ci(...)` | **cmdb_definition_id**, **ci_id**, ci_fields, status, submitter | CI ID | **cmdb_definition_id** can be found using `fp.list_container_definitions()`
 *"editContact"* | `fp.update_contact(...)` | **address_book_definition_id**, **contact_id**, **contact_fields**, submitter | Contact ID | See `createContact` additional notes
 *"editItem"* | `fp.update_item(...)` | **item_definition_id**, **item_id**, **item_fields**, assignees, submitter | Item ID | See `createItem` additional notes
-*"editTicket"* | `fp.update_ticket(...)` | **ticket_definition_id**, **ticket_id**, **ticket_fields** , contact_definition_id, select_contact, assignees, submitter | Ticket ID | 
+*"editTicket"* | `fp.update_ticket(...)` | **ticket_definition_id**, **ticket_id**, **ticket_fields** , contact_definition_id, select_contact, assignees, submitter | Ticket ID |
 *"getContactAssociatedTickets"* | `fp.get_contact_associated_tickets(...)` | **contact_definition_id**, **primary_key_value**, submitter | Sea of Tickets | **contact_definition_id** can be found using `fp.get_container_definitions()` typically the container definition id you are looking for will have a sub type name of Address Book. With the proper id, use `fp.get_item_definitions(container_definition_id)` which will display the `contact_definition_id`.
-*"getItemDetails"* | `fp.get_item(...)` | **item_definition_id**, **item_id**, fields_to_retrieve, submitter | Item Object | 
-*"getItemId"* | `fp.get_item_id(...)` | **item_definition_id**, **item_number**, submitter | Item ID | The item id can optionally be prepended with your organizational prefix or left has a number. The organization prefix defaults to "SR-" upon object instantiation. 
+*"getItemDetails"* | `fp.get_item(...)` | **item_definition_id**, **item_id**, fields_to_retrieve, submitter | Item Object |
+*"getItemId"* | `fp.get_item_id(...)` | **item_definition_id**, **item_number**, submitter | Item ID | The item id can optionally be prepended with your organizational prefix or left has a number. The organization prefix defaults to "SR-" upon object instantiation.
 *"getTicketDetails"* | `fp.get_ticket(...)` | **item_definition_id**, **item_number**, item_id, submitter, fields_to_retrieve | Ticket Object | The ticket object has all the returned ticket fields as attributes. As such common fields like the ticket title can be accessed by: <pre lang="python">print(ticket.title)</pre> You can modify the custom attributes that are included in the ticket object by modifying the `CustomAttributesMixin` found in: <pre lang="python">from footprints.mixins.common import CustomAttributesMixin</pre>
 *"linkItems"* | `fp.link_items(...)` | **first_item_definition_id**, **first_item_id**, **second_item_definition_id**, **second_item_id**, **link_type_name**, submitter | Dynamic Item Link ID | No assumptions are made regarding the linking of items. Both item definition ids and their respective item ids must be passed in. The list of acceptable **link_type_name**(s) can be found within the method documentation.
 *"linkTickets"* | `fp.link_tickets(...)` | **first_ticket_definition_id**, **first_ticket_id**, **second_ticket_definition_id**, **second_ticket_id**, **link_type_name**, submitter | Dynamic Item Link ID | See `linkItems` additional notes

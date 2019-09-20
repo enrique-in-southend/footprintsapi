@@ -6,10 +6,11 @@ from __future__ import (
     print_function,
     unicode_literals,
 )
-from setuptools import setup
+from setuptools import find_packages, setup
 import re
+import os
 
-# get version number
+# Get version number
 with open("footprintsapi/__init__.py", "r") as fd:
     version = re.search(
         r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
@@ -18,15 +19,23 @@ with open("footprintsapi/__init__.py", "r") as fd:
 if not version:
     raise RuntimeError("Cannot find version information.")
 
+# Get the readme
+with open(os.path.join(os.path.dirname(__file__), "README.md")) as readme:
+    long_description = readme.read()
+
+# allow setup.py to be run from any path
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+
 setup(
     name="footprintsapi",
     version=version,
     description="API wrapper for the BMC (Numara) Footprints SOAP API",
+    long_description=long_description,
     url="https://github.com/Jesus-E-Rodriguez/footprintsapi.git",
     author="Jesus Rodriguez",
-    author_email="jesus.rodriguez@cpcc.edu",
+    author_email="jesus_enrique@rocketmail.com",
     license="MIT License",
-    packages=["footprintsapi"],
+    packages=find_packages(),
     include_package_data=True,
     install_requires=[
         "appdirs~=1.4.3",
