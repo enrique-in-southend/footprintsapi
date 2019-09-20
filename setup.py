@@ -31,6 +31,7 @@ setup(
     version=version,
     description="API wrapper for the BMC (Numara) Footprints SOAP API",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/Jesus-E-Rodriguez/footprintsapi.git",
     author="Jesus Rodriguez",
     author_email="jesus_enrique@rocketmail.com",
@@ -79,4 +80,5 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Topic :: Software Development :: Libraries",
     ],
+    python_requires=">=3.6",
 )
