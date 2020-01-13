@@ -1,45 +1,38 @@
 """Base FootprintsObject."""
 
-from .utils import (
-    pretty_attributes,
-    to_dict,
-    parse_keys,
-    get_attributes,
-    cleanup_args,
-)
-from .requester import Requester
-from typing import Union, Optional
+import json
+from typing import Optional, Union
 
 from .mixins import (
-    CommonMixin,
-    CustomAttributesMixin,
     COMMON_ATTRS,
-    GetItemIdMixin,
-    GetItemDetailsMixin,
+    CommonMixin,
+    CreateCIMixin,
+    CreateContactMixin,
+    CreateItemMixin,
+    CreateOrEditContactMixin,
+    CreateTicketAndLinkAssets,
+    CustomAttributesMixin,
+    EditCIMixin,
+    EditContactMixin,
+    EditItemMixin,
+    EditTicketMixin,
     GetContactAssociatedTickets,
+    GetItemDetailsMixin,
+    GetItemIdMixin,
+    LinkItems,
+    LinkTickets,
     ListContainerDefinitionsMixin,
     ListFieldDefinitionsMixin,
     ListItemDefinitionsMixin,
     ListQuickTemplatesMixin,
     ListSearchesMixin,
     RunSearchMixin,
-    EditCIMixin,
-    EditContactMixin,
-    EditItemMixin,
-    EditTicketMixin,
-    CreateCIMixin,
-    CreateContactMixin,
-    CreateItemMixin,
-    CreateOrEditContactMixin,
-    CreateTicketAndLinkAssets,
-    LinkItems,
-    LinkTickets,
 )
-from typing import Union
-import json
+from .requester import Requester
+from .utils import cleanup_args, get_attributes, parse_keys, pretty_attributes, to_dict
 
 
-class FootprintsObject(object):
+class FootprintsObject:
     """Base class for all classes representing objects returned by the API.
 
     This makes a call to :func:`Footprintsapi.FootprintsObject.set_attributes`
@@ -100,6 +93,9 @@ class FootprintsObject(object):
             self.attributes, dict
         ):
             self.attributes = to_dict(attributes)
+
+        if hasattr(self, "get_custom_attributes"):
+            self.attributes.update(self.get_custom_attributes())
 
         if any(map(lambda k: k.startswith("_"), self.attributes.keys())):
             self.attributes = parse_keys(self.attributes, "snake_case")
@@ -193,9 +189,7 @@ class Item(FootprintsObject):
             params["item_definition_id"] = self.item_definition_id
         if "item_id" not in params:
             params["item_id"] = self.item_id
-        return self._requester.request(
-            method_name="editItem", params=params, **kwargs
-        )
+        return self._requester.request(method_name="editItem", params=params, **kwargs)
 
 
 class FootprintsBaseObject(

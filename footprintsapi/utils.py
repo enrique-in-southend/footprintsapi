@@ -1,8 +1,8 @@
 """Collection of common functions and other objects used throughout the program."""
 
-from typing import Optional, Union, Any, Iterable, Tuple, List
-from collections import defaultdict
 import re
+from collections import defaultdict
+from typing import Any, Iterable, List, Optional, Tuple, Union
 
 
 def check_attributes(
@@ -66,14 +66,8 @@ def to_dict(obj: object) -> dict:
 
 def to_snake_case(value: str) -> str:
     """Convert camel case string to snake case."""
-    if "_" in value:
-        value = value.split("_", 1)[-1]
-    first_underscore = re.sub("(.)([A-Z][a-z]+)", r"\1_\2", value)
-    return (
-        re.sub("([a-z0-9])([A-Z])", r"\1_\2", first_underscore)
-        .lower()
-        .replace(" ", "")
-    )
+    words = re.findall(r"[A-Z]?[a-z]+|[A-Z]{2,}(?=[A-Z][a-z]|\d|\W|$)|\d+", value)
+    return "_".join(map(str.lower, words))
 
 
 def keys_to_snake_case(content: dict) -> dict:
@@ -121,11 +115,7 @@ def parse_keys(data: dict = None, parse_type: str = "modified_camel") -> dict:
     if not isinstance(data, dict):
         raise TypeError("Invalid data type, use dict.")
 
-    formatters = [
-        keys_to_modified_camel,
-        keys_to_camel_case,
-        keys_to_snake_case,
-    ]
+    formatters = [keys_to_modified_camel, keys_to_camel_case, keys_to_snake_case]
 
     formatter = None
     for f in formatters:
@@ -135,9 +125,7 @@ def parse_keys(data: dict = None, parse_type: str = "modified_camel") -> dict:
 
 
 def pretty_attributes(
-    all_attributes: dict,
-    desired_attributes: Iterable[str],
-    max_attributes: int = 3,
+    all_attributes: dict, desired_attributes: Iterable[str], max_attributes: int = 3
 ) -> str:
     """Return a pretty string for the __repr__ body of an object."""
     pretty_str = ""
@@ -166,9 +154,7 @@ def pretty_attributes(
     return pretty_str
 
 
-def get_attributes(
-    fields_to_iterate: list, attributes_to_fetch: list = None
-) -> dict:
+def get_attributes(fields_to_iterate: list, attributes_to_fetch: list = None) -> dict:
     """Iterate through list of dicts and return list of keys and values."""
     attrs = []
     for item in fields_to_iterate:
@@ -181,16 +167,13 @@ def get_attributes(
         if attributes_to_fetch and label in attributes_to_fetch:
             if isinstance(value, list) and len(value) == 1:
                 value = value[0]
-
             key = to_snake_case(label)
             attrs.append((key, value))
 
     return attrs
 
 
-def set_default_attr(
-    obj: object, attr_name_to_set: str, value, default_value=None
-):
+def set_default_attr(obj: object, attr_name_to_set: str, value, default_value=None):
     """Set a default attr if it doesn't already exist."""
     if not hasattr(obj, attr_name_to_set):
         setattr(obj, attr_name_to_set, value or default_value)

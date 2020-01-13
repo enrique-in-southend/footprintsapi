@@ -1,8 +1,10 @@
 """Collection of common mixins."""
 
-from .utils import get_attributes, cleanup_args
+from typing import Optional, Tuple, Union
+
 from footprintsapi.requester import Requester
-from typing import Tuple, Optional, Union
+
+from .utils import cleanup_args, get_attributes
 
 COMMON_ATTRS = [
     "Title",
@@ -21,11 +23,11 @@ CUSTOM_ATTRS = [
     "PreEscalation",
     "Email Address",
     "Assignees",
-    "Full Name",
     "CC Email",
     "Internal",
     "Service",
     "Details",
+    "Email CC",
 ]
 
 
@@ -36,28 +38,25 @@ class CommonMixin:
         self, method_name: str, params: dict, **kwargs
     ) -> Tuple[Requester, dict]:
         """Will wrap data within a FootprintsObject."""
-        return (
-            self._requester,
-            self._requester.request(method_name, params, **kwargs),
-        )
+        return (self._requester, self._requester.request(method_name, params, **kwargs))
 
 
 class CustomAttributesMixin:
     """Mixin class to get custom attributes."""
 
-    def __init__(
+    def get_custom_attributes(
         self, custom_attributes: Optional[list] = CUSTOM_ATTRS
-    ) -> None:
+    ) -> dict:
         """Find custom attributes relevant to your organization."""
+        attributes = {}
         try:
             attributes = get_attributes(
-                fields_to_iterate=self.attributes.get("custom_fields")[
-                    "itemFields"
-                ],
+                fields_to_iterate=self.attributes.get("_customFields")["itemFields"],
                 attributes_to_fetch=custom_attributes,
             )
         except TypeError:
             pass
+        return attributes
 
 
 class GetItemIdMixin:
@@ -118,9 +117,7 @@ class GetItemDetailsMixin:
         :return: Dict of item fields and assignees.
         """
         return self._requester.request(
-            method_name="getItemDetails",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="getItemDetails", params=cleanup_args(locals()), **kwargs
         )
 
 
@@ -198,9 +195,7 @@ class ListItemDefinitionsMixin:
         :calls: `GET listItemDefinitions`
         """
         return self._requester.request(
-            method_name="listItemDefinitions",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="listItemDefinitions", params=cleanup_args(locals()), **kwargs
         )
 
 
@@ -222,9 +217,7 @@ class ListFieldDefinitionsMixin:
         :calls: `GET listFieldDefinitions`
         """
         return self._requester.request(
-            method_name="listFieldDefinitions",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="listFieldDefinitions", params=cleanup_args(locals()), **kwargs
         )
 
 
@@ -244,9 +237,7 @@ class ListQuickTemplatesMixin:
         :param submitter: Userid/username of submitter.
         """
         return self._requester.request(
-            method_name="listQuickTemplates",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="listQuickTemplates", params=cleanup_args(locals()), **kwargs
         )
 
 
@@ -274,10 +265,7 @@ class RunSearchMixin:
     """Add basic `runSearch` functionality to Footprints object."""
 
     def get_search(
-        self,
-        search_id: Union[str, int],
-        submitter: Optional[str] = None,
-        **kwargs,
+        self, search_id: Union[str, int], submitter: Optional[str] = None, **kwargs
     ) -> list:
         """Retrive searches.
 
@@ -340,9 +328,7 @@ class CreateContactMixin:
         :calls: `POST createContact`
         """
         return self._requester.request(
-            method_name="createContact",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="createContact", params=cleanup_args(locals()), **kwargs
         )
 
 
@@ -403,9 +389,7 @@ class CreateOrEditContactMixin:
         :return: Contact id.
         """
         return self._requester.request(
-            method_name="createOrEditContact",
-            params=cleanup_args(locals()),
-            **kwargs,
+            method_name="createOrEditContact", params=cleanup_args(locals()), **kwargs
         )
 
 
