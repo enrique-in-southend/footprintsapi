@@ -154,11 +154,14 @@ def pretty_attributes(
     return pretty_str
 
 
-def get_attributes(fields_to_iterate: list, attributes_to_fetch: list = None) -> dict:
+def get_attributes(fields_to_iterate: list, attributes_to_fetch: list = None) -> list:
     """Iterate through list of dicts and return list of keys and values."""
+    if attributes_to_fetch:
+        attributes_to_fetch = [a.lower() for a in attributes_to_fetch]
+
     attrs = []
     for item in fields_to_iterate:
-        label = item["fieldName"]
+        label = item["fieldName"].lower()
         try:
             value = item["fieldValue"]["value"]
         except TypeError:
