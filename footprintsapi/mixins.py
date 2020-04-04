@@ -28,6 +28,7 @@ CUSTOM_ATTRS = [
     "Service",
     "Details",
     "Email CC",
+    "Full Name",
 ]
 
 
