@@ -8,4 +8,4 @@ from footprintsapi.footprints import Footprints
 
 __all__ = ["Footprints"]
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
