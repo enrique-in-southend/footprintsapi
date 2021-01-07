@@ -47,7 +47,7 @@ setup(
         "defusedxml~=0.6.0",
         "idna~=2.8",
         "isodate~=0.6.0",
-        "lxml~=4.3.3",
+        "lxml>=4.3.3,<4.7.0",
         "pytz~=2019.1",
         "requests~=2.21.0",
         "requests-toolbelt~=0.9.1",
