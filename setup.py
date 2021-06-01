@@ -52,7 +52,7 @@ setup(
         "requests~=2.21.0",
         "requests-toolbelt~=0.9.1",
         "six~=1.12.0",
-        "urllib3~=1.24.3",
+        "urllib3>=1.24.3,<1.27.0",
         "zeep~=3.3.1",
     ],
     extras_requires={
