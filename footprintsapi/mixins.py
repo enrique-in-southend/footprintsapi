@@ -1,12 +1,11 @@
 """Collection of common mixins."""
 
-from typing import Optional, Tuple, Union
+from typing import Iterable, Optional, Tuple, Union
 
 from footprintsapi.requester import Requester
-
 from .utils import cleanup_args, get_attributes
 
-COMMON_ATTRS = [
+COMMON_ATTRS = (
     "Title",
     "Created By",
     "Full Name",
@@ -15,9 +14,9 @@ COMMON_ATTRS = [
     "User ID",
     "Description",
     "Email Address",
-]
+)
 
-CUSTOM_ATTRS = [
+CUSTOM_ATTRS = (
     "Escalation Status",
     "Email Assignees",
     "PreEscalation",
@@ -29,7 +28,7 @@ CUSTOM_ATTRS = [
     "Details",
     "Email CC",
     "Full Name",
-]
+)
 
 
 class CommonMixin:
@@ -46,7 +45,7 @@ class CustomAttributesMixin:
     """Mixin class to get custom attributes."""
 
     def get_custom_attributes(
-        self, custom_attributes: Optional[list] = CUSTOM_ATTRS
+        self, custom_attributes: Optional[Iterable] = CUSTOM_ATTRS
     ) -> dict:
         """Find custom attributes relevant to your organization."""
         attributes = {}
@@ -251,7 +250,7 @@ class ListSearchesMixin:
         submitter: Optional[str] = None,
         **kwargs,
     ) -> list:
-        """Retrive searches.
+        """Retrieve searches.
 
         :param item_type_name: Item name from which one can retrieve existing Saved Searches in the FootPrints application.
 
@@ -268,7 +267,7 @@ class RunSearchMixin:
     def get_search(
         self, search_id: Union[str, int], submitter: Optional[str] = None, **kwargs
     ) -> list:
-        """Retrive searches.
+        """Run searches.
 
         :param search_id: You can retrieve the item_type_name parameter to get the item
         ID to run the search query from the existing Saved Searches only.
@@ -395,7 +394,7 @@ class CreateOrEditContactMixin:
 
 
 class CreateTicketAndLinkAssets:
-    """Adds basic `createTicketAndLinkAssets` functionality to Fooprints object."""
+    """Adds basic `createTicketAndLinkAssets` functionality to Footprints object."""
 
     def create_ticket_and_link_assets(
         self,
@@ -413,7 +412,7 @@ class CreateTicketAndLinkAssets:
 
         :param ticket_fields: List of dicts with itemFields and itemValues.
 
-        assets_list: List of dicts with fieldNames and fieldValues.
+        :param assets_list: List of dicts with fieldNames and fieldValues.
 
         :param quick_template_id: The quick template id to use.
 
@@ -433,7 +432,7 @@ class CreateTicketAndLinkAssets:
 
 
 class LinkItems:
-    """Adds basic `linkItems` functionality to Fooprints object."""
+    """Adds basic `linkItems` functionality to Footprints object."""
 
     def link_items(
         self,
@@ -504,7 +503,7 @@ class LinkItems:
 
 
 class LinkTickets:
-    """Adds basic `linkTickets` functionality to Fooprints object."""
+    """Adds basic `linkTickets` functionality to Footprints object."""
 
     def link_tickets(
         self,
@@ -592,7 +591,7 @@ class EditCIMixin:
 
         :param ci_id: The CI id.
 
-        :param cifields: List of dicts with itemFields and itemValues.
+        :param ci_fields: List of dicts with itemFields and itemValues.
 
         :param status: The status.
 

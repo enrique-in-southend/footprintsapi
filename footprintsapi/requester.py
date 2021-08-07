@@ -1,23 +1,23 @@
 """Module housing the SOAP request handler."""
 
-from .utils import parse_keys, set_default_attr
-from requests.auth import HTTPBasicAuth
-from requests import Response, Session
-from .exceptions import (
-    ResourceDoesNotExist,
-    FootprintsException,
-    Unauthorized,
-    BadRequest,
-    Forbidden,
-)
-from typing import NoReturn
-from zeep.transports import Transport
-from zeep.cache import SqliteCache
-from zeep import Client, Settings
 from typing import Optional
-from http import HTTPStatus
+
 import requests
 import zeep
+from requests import Response, Session
+from requests.auth import HTTPBasicAuth
+from zeep import Client, Settings
+from zeep.cache import SqliteCache
+from zeep.transports import Transport
+
+from .exceptions import (
+    BadRequest,
+    FootprintsException,
+    Forbidden,
+    ResourceDoesNotExist,
+    Unauthorized,
+)
+from .utils import parse_keys, set_default_attr
 
 
 class Requester:
@@ -31,7 +31,7 @@ class Requester:
         settings: Optional[Settings] = None,
         storage_url: Optional[str] = None,
         timeout: Optional[int] = 60,
-    ) -> NoReturn:
+    ) -> None:
         """Init function."""
         self.base_url = base_url
         self.client_id = client_id
@@ -55,7 +55,7 @@ class Requester:
                 raise Unauthorized(e)
             raise BadRequest(e)
 
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             raise ResourceDoesNotExist()
 
     def request(
@@ -114,18 +114,12 @@ class Requester:
             if hasattr(response, "__dict__"):
                 set_default_attr(response, "_itemId", params.get("_itemId"))
                 set_default_attr(
-                    response,
-                    "_itemDefinitionId",
-                    params.get("_itemDefinitionId"),
+                    response, "_itemDefinitionId", params.get("_itemDefinitionId")
                 )
                 set_default_attr(
-                    response,
-                    "_ticketDefinitionId",
-                    params.get("_itemDefinitionId"),
+                    response, "_ticketDefinitionId", params.get("_itemDefinitionId")
                 )
-                set_default_attr(
-                    response, "_ticketNumber", params.get("_ticketNumber")
-                )
+                set_default_attr(response, "_ticketNumber", params.get("_ticketNumber"))
 
             # Add response to internal cache
             if len(self._cache) > 4:
@@ -142,7 +136,8 @@ class Requester:
         except zeep.exceptions.Fault as e:
             raise ResourceDoesNotExist(e)
 
-        except AttributeError:
+        except AttributeError as e:
+            print(e)
             raise ResourceDoesNotExist()
 
         except ValueError:

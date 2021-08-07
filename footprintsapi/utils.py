@@ -1,13 +1,10 @@
 """Collection of common functions and other objects used throughout the program."""
 
 import re
-from collections import defaultdict
-from typing import Any, Iterable, List, Optional, Tuple, Union
+from typing import Any, Iterable, Union
 
 
-def check_attributes(
-    attrs_to_check: list = None, data: dict = None, msg: Optional[str] = None
-) -> Union[bool]:
+def check_attributes(attrs_to_check: list = None, data: dict = None) -> Union[bool]:
     """Check to see if attributes specified in a list are contained within a dict.
 
     :param attrs_to_check: List of attributes or keys to check the dict
@@ -27,11 +24,11 @@ def check_attributes(
 
 
 def cleanup_args(
-    args_dict: dict, items_to_remove: list = ["self", "kwargs", "params"]
+    args_dict: dict, items_to_remove: Iterable = ("self", "kwargs", "params")
 ) -> dict:
     """Iterate through dict and remove items."""
     if not args_dict:
-        raise AttributeError("No arguments recieved.")
+        raise AttributeError("No arguments received.")
     if not isinstance(args_dict, dict):
         raise TypeError("Args must be passed as a dict.")
 

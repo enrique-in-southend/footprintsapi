@@ -4,17 +4,19 @@ Contains the footprints client, which all supported endpoints should be
 either directly or indirectly accessible from.
 """
 
-from .models import Ticket, Item, FootprintsBaseObject
-from typing import Union, Optional, NoReturn
-from .requester import Requester
-from .mixins import CommonMixin
-from .utils import cleanup_args
+from typing import Optional, Union
+
 from requests import Response
 from zeep import Settings
 
+from .mixins import CommonMixin
+from .models import FootprintsBaseObject, Item, Ticket
+from .requester import Requester
+from .utils import cleanup_args
+
 
 class Footprints(CommonMixin, FootprintsBaseObject):
-    """The main class to be instantiated to provide access to Footprints's SOAP API."""
+    """The main class to be instantiated to provide access to Footprints' SOAP API."""
 
     def __init__(
         self,
@@ -24,7 +26,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         settings: Optional[object] = None,
         storage_url: Optional[str] = None,
         timeout: Optional[int] = 60,
-    ) -> NoReturn:
+    ) -> None:
         """Init function.
 
         :param client_id: The username/client id.
@@ -38,9 +40,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         :param timeout: A timeout for the DB only relevant when providing a storage url.
         """
         if settings and not isinstance(settings, Settings):
-            raise TypeError(
-                "Settings are expected in the form of a Settings object."
-            )
+            raise TypeError("Settings are expected in the form of a Settings object.")
 
         self._requester = Requester(
             client_id, client_secret, base_url, settings, storage_url, timeout
@@ -55,7 +55,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         fields_to_retrieve: Optional[list] = None,
         submitter: Optional[str] = None,
         **kwargs,
-    ) -> str:
+    ) -> Item:
         """Retrieve item details.
 
         :param item_id: The id of the item to retrieve.
@@ -74,9 +74,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         """
         return Item(
             *self._obj_data(
-                method_name="getItemDetails",
-                params=cleanup_args(locals()),
-                **kwargs,
+                method_name="getItemDetails", params=cleanup_args(locals()), **kwargs
             )
         )
 
@@ -89,6 +87,8 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         **kwargs,
     ) -> Ticket:
         """Get a footprints ticket.
+
+        :param item_definition_id: The global item definition.
 
         :param item_id: The ticket's item identifier or item_number.
 
@@ -111,9 +111,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
             params["item_id"] = self.get_item_id(**params)
 
         return Ticket(
-            *self._obj_data(
-                method_name="getTicketDetails", params=params, **kwargs
-            )
+            *self._obj_data(method_name="getTicketDetails", params=params, **kwargs)
         )
 
     def create_ticket(
@@ -126,12 +124,12 @@ class Footprints(CommonMixin, FootprintsBaseObject):
         contact_definition_id: Optional[str] = None,
         select_contact: Optional[str] = None,
         **kwargs,
-    ) -> str:
+    ) -> Response:
         """Create a footprints ticket.
 
-        :param ticket_fields: List of ticket fieldnames. Field names are the external names.
+        :param ticket_definition_id: The related definition id for the ticket.
 
-        :param ticket_values: The values associated with the ticket fields.
+        :param ticket_fields: List of ticket fieldnames. Field names are the external names.
 
         :param assignees: List of people to assign to ticket.
 
@@ -141,7 +139,7 @@ class Footprints(CommonMixin, FootprintsBaseObject):
 
         :param contact_definition_id: The id for contact linking.
 
-        :param selectContact: The contact primary key. Usually an email address.
+        :param select_contact: The contact primary key. Usually an email address.
 
         :calls: `POST createTicket`
 

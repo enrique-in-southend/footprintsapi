@@ -1,601 +1,645 @@
-<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://externalapi.business.footprints.numarasoftware.com/" elementFormDefault="unqualified" targetNamespace="http://externalapi.business.footprints.numarasoftware.com/" version="1.0">
-<xs:element name="CreateCIRequest" type="tns:CreateCIRequest"/>
-<xs:element name="CreateContactRequest" type="tns:CreateContactRequest"/>
-<xs:element name="CreateItemRequest" type="tns:CreateItemRequest"/>
-<xs:element name="CreateTicketAndLinkAssetsRequest" type="tns:CreateTicketAndLinkAssetsRequest"/>
-<xs:element name="CreateTicketRequest" type="tns:CreateTicketRequest"/>
-<xs:element name="DefinitionResponse" type="tns:DefinitionResponse"/>
-<xs:element name="DefinitionsResponse" type="tns:DefinitionsResponse"/>
-<xs:element name="DescriptionDetail" type="tns:DescriptionDetail"/>
-<xs:element name="EditCIRequest" type="tns:EditCIRequest"/>
-<xs:element name="EditContactRequest" type="tns:EditContactRequest"/>
-<xs:element name="EditItemRequest" type="tns:EditItemRequest"/>
-<xs:element name="EditTicketRequest" type="tns:EditTicketRequest"/>
-<xs:element name="FieldDefinitionResponse" type="tns:FieldDefinitionResponse"/>
-<xs:element name="FieldDefinitionsResponse" type="tns:FieldDefinitionsResponse"/>
-<xs:element name="GetItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
-<xs:element name="RunSearchRequest" type="tns:RunSearchRequest"/>
-<xs:element name="GetContactAssociatedTicketsRequest" type="tns:GetContactAssociatedTicketsRequest"/>
-<xs:element name="ItemDetailsResponse" type="tns:ItemDetailsResponse"/>
-<xs:element name="LinkItemsRequest" type="tns:LinkItemsRequest"/>
-<xs:element name="LinkTicketsRequest" type="tns:LinkTicketsRequest"/>
-<xs:element name="ListContainerDefinitionsRequest" type="tns:ListContainerDefinitionsRequest"/>
-<xs:element name="ListFieldDefinitionsRequest" type="tns:ListFieldDefinitionsRequest"/>
-<xs:element name="ListItemDefinitionsRequest" type="tns:ListItemDefinitionsRequest"/>
-<xs:element name="ListQuickTemplatesRequest" type="tns:ListQuickTemplatesRequest"/>
-<xs:element name="ListSearchesRequest" type="tns:ListSearchesRequest"/>
-<xs:element name="QuickTemplate" type="tns:QuickTemplate"/>
-<xs:element name="QuickTemplatesResponse" type="tns:QuickTemplatesResponse"/>
-<xs:element name="TicketDetailsResponse" type="tns:TicketDetailsResponse"/>
-<xs:element name="createCI" type="tns:createCI"/>
-<xs:element name="createCIResponse" type="tns:createCIResponse"/>
-<xs:element name="createContact" type="tns:createContact"/>
-<xs:element name="createContactResponse" type="tns:createContactResponse"/>
-<xs:element name="createItem" type="tns:createItem"/>
-<xs:element name="createItemResponse" type="tns:createItemResponse"/>
-<xs:element name="createOrEditContact" type="tns:createOrEditContact"/>
-<xs:element name="createOrEditContactResponse" type="tns:createOrEditContactResponse"/>
-<xs:element name="createTicket" type="tns:createTicket"/>
-<xs:element name="createTicketAndLinkAssets" type="tns:createTicketAndLinkAssets"/>
-<xs:element name="createTicketAndLinkAssetsResponse" type="tns:createTicketAndLinkAssetsResponse"/>
-<xs:element name="createTicketResponse" type="tns:createTicketResponse"/>
-<xs:element name="editCI" type="tns:editCI"/>
-<xs:element name="editCIResponse" type="tns:editCIResponse"/>
-<xs:element name="editContact" type="tns:editContact"/>
-<xs:element name="editContactResponse" type="tns:editContactResponse"/>
-<xs:element name="editItem" type="tns:editItem"/>
-<xs:element name="editItemResponse" type="tns:editItemResponse"/>
-<xs:element name="editTicket" type="tns:editTicket"/>
-<xs:element name="editTicketResponse" type="tns:editTicketResponse"/>
-<xs:element name="getItemDetails" type="tns:getItemDetails"/>
-<xs:element name="runSearch" type="tns:runSearch"/>
-<xs:element name="getContactAssociatedTickets" type="tns:getContactAssociatedTickets"/>
-<xs:element name="getItemDetailsResponse" type="tns:getItemDetailsResponse"/>
-<xs:element name="runSearchResponse" type="tns:runSearchResponse"/>
-<xs:element name="getContactAssociatedTicketsResponse" type="tns:getContactAssociatedTicketsResponse"/>
-<xs:element name="getTicketDetails" type="tns:getTicketDetails"/>
-<xs:element name="getTicketDetailsResponse" type="tns:getTicketDetailsResponse"/>
-<xs:element name="linkItems" type="tns:linkItems"/>
-<xs:element name="linkItemsResponse" type="tns:linkItemsResponse"/>
-<xs:element name="linkTickets" type="tns:linkTickets"/>
-<xs:element name="linkTicketsResponse" type="tns:linkTicketsResponse"/>
-<xs:element name="listContainerDefinitions" type="tns:listContainerDefinitions"/>
-<xs:element name="listContainerDefinitionsResponse" type="tns:listContainerDefinitionsResponse"/>
-<xs:element name="listFieldDefinitions" type="tns:listFieldDefinitions"/>
-<xs:element name="listFieldDefinitionsResponse" type="tns:listFieldDefinitionsResponse"/>
-<xs:element name="listItemDefinitions" type="tns:listItemDefinitions"/>
-<xs:element name="listItemDefinitionsResponse" type="tns:listItemDefinitionsResponse"/>
-<xs:element name="listQuickTemplates" type="tns:listQuickTemplates"/>
-<xs:element name="listSearches" type="tns:listSearches"/>
-<xs:element name="listQuickTemplatesResponse" type="tns:listQuickTemplatesResponse"/>
-<xs:element name="listSearchesResponse" type="tns:listSearchesResponse"/>
-<xs:complexType name="createCI">
-    <xs:sequence>
-      <xs:element name="createCIRequest" type="tns:CreateCIRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateCIRequest">
-    <xs:sequence>
-      <xs:element name="_cmdbDefinitionId" type="xs:long"/>
-      <xs:element name="_ciFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-      <xs:element minOccurs="0" name="_status" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="itemFieldsList">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="itemFields" nillable="true" type="tns:itemField"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="itemField">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
-      <xs:element minOccurs="0" name="fieldValue" type="tns:valuesList"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="valuesList">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createCIResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="linkItems">
-    <xs:sequence>
-      <xs:element name="linkItemsRequest" type="tns:LinkItemsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="LinkItemsRequest">
-    <xs:sequence>
-      <xs:element name="_firstItemDefinitionId" type="xs:long"/>
-      <xs:element name="_firstItemId" type="xs:long"/>
-      <xs:element name="_secondItemDefinitionId" type="xs:long"/>
-      <xs:element name="_secondItemId" type="xs:long"/>
-      <xs:element name="_linkTypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="linkItemsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getTicketDetails">
-    <xs:sequence>
-      <xs:element name="getItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="GetItemDetailsRequest">
-    <xs:sequence>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element name="_itemId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_fieldsToRetrieve" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="RunSearchRequest">
-    <xs:sequence>
-      <xs:element name="_searchId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="GetContactAssociatedTicketsRequest">
-    <xs:sequence>
-      <xs:element name="_contactDefinitionId" type="xs:long"/>
-      <xs:element name="_primaryKeyValue" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getTicketDetailsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:TicketDetailsResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="TicketDetailsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_ticketNumber" type="xs:long"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-      <xs:element minOccurs="0" name="_createDate" type="xs:string"/>
-      <xs:element minOccurs="0" name="_createTime" type="xs:string"/>
-      <xs:element minOccurs="0" name="_title" type="xs:string"/>
-      <xs:element minOccurs="0" name="_status" type="xs:string"/>
-      <xs:element minOccurs="0" name="_priority" type="xs:string"/>
-      <xs:element minOccurs="0" name="_description" type="xs:string"/>
-      <xs:element minOccurs="0" name="_allDescriptionsList" type="tns:descriptionsDetailList"/>
-      <xs:element minOccurs="0" name="_allDescriptionsText" type="xs:string"/>
-      <xs:element minOccurs="0" name="_descriptionStamp" type="xs:string"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_customFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_history" type="tns:history"/>
-      <xs:element minOccurs="0" name="_editors" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_lastEditDate" type="xs:string"/>
-      <xs:element minOccurs="0" name="_lastEditTime" type="xs:string"/>
-      <xs:element minOccurs="0" name="_mostRecentEdit" type="tns:itemHistoryEvent"/>
-      <xs:element minOccurs="0" name="_emailRecipients" type="tns:valuesList"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="descriptionsDetailList">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptionsDetail" nillable="true" type="tns:DescriptionDetail"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="DescriptionDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_stamp" type="xs:string"/>
-      <xs:element minOccurs="0" name="_data" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="history">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="historyEvents" nillable="true" type="tns:itemHistoryEvent"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="itemHistoryEvent">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="action" type="xs:string"/>
-      <xs:element minOccurs="0" name="date" type="xs:string"/>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldsChange" nillable="true" type="tns:fieldChange"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="fieldChange">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
-      <xs:element minOccurs="0" name="newValue" type="xs:anyType"/>
-      <xs:element minOccurs="0" name="oldValue" type="xs:anyType"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editContact">
-    <xs:sequence>
-      <xs:element name="editContactRequest" type="tns:EditContactRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="EditContactRequest">
-    <xs:sequence>
-      <xs:element name="_addressBookDefinitionId" type="xs:long"/>
-      <xs:element name="_contactId" type="xs:long"/>
-      <xs:element name="_contactFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editContactResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="linkTickets">
-    <xs:sequence>
-      <xs:element name="linkTicketsRequest" type="tns:LinkTicketsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="LinkTicketsRequest">
-    <xs:sequence>
-      <xs:element name="_firstTicketDefinitionId" type="xs:long"/>
-      <xs:element name="_firstTicketId" type="xs:long"/>
-      <xs:element name="_secondTicketDefinitionId" type="xs:long"/>
-      <xs:element name="_secondTicketId" type="xs:long"/>
-      <xs:element name="_linkTypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="linkTicketsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getItemDetails">
-    <xs:sequence>
-      <xs:element name="getItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="runSearch">
-    <xs:sequence>
-      <xs:element name="runSearchRequest" type="tns:RunSearchRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getContactAssociatedTickets">
-    <xs:sequence>
-      <xs:element name="getContactAssociatedTicketsRequest" type="tns:GetContactAssociatedTicketsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getItemDetailsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:ItemDetailsResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="runSearchResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:RunSearchResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="getContactAssociatedTicketsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:RunSearchResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ItemDetailsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="RunSearchResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="_items" type="tns:SearchRow"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="SearchRow">
-    <xs:sequence>
-      <xs:element name="_containerDefinitionId" type="xs:long"/>
-      <xs:element name="_containerDefinitionName" type="xs:string"/>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element name="_itemDefinitionName" type="xs:string"/>
-      <xs:element name="_itemId" type="xs:long"/>
-      <xs:element name="_itemFields" type="tns:itemFieldsList"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listQuickTemplates">
-    <xs:sequence>
-      <xs:element name="listQuickTemplatesRequest" type="tns:ListQuickTemplatesRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listSearches">
-    <xs:sequence>
-      <xs:element name="listSearchesRequest" type="tns:ListSearchesRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ListQuickTemplatesRequest">
-    <xs:sequence>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ListSearchesRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_itemTypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listQuickTemplatesResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:QuickTemplatesResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listSearchesResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:SearchesResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="QuickTemplatesResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="_quickTemplates" nillable="true" type="tns:QuickTemplate"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="SearchesResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="_searches" nillable="true" type="tns:Search"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="QuickTemplate">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_itemDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_templateId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_templateName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_templateDescription" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="Search">
-    <xs:sequence>
-      <xs:element name="_searchId" type="xs:long"/>
-      <xs:element name="_searchName" type="xs:string"/>
-      <xs:element name="_searchDescription" type="xs:string"/>
-      <xs:element name="_searchType" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listFieldDefinitions">
-    <xs:sequence>
-      <xs:element name="listFieldDefinitionsRequest" type="tns:ListFieldDefinitionsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ListFieldDefinitionsRequest">
-    <xs:sequence>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listFieldDefinitionsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:FieldDefinitionsResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="FieldDefinitionsResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="_fieldDefinitions" nillable="true" type="tns:FieldDefinitionResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="FieldDefinitionResponse">
-    <xs:sequence>
-      <xs:element name="_definitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_fieldExternalName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_fieldType" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editItem">
-    <xs:sequence>
-      <xs:element name="editItemRequest" type="tns:EditItemRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="EditItemRequest">
-    <xs:sequence>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element name="_itemId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editItemResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listItemDefinitions">
-    <xs:sequence>
-      <xs:element name="listItemDefinitionsRequest" type="tns:ListItemDefinitionsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ListItemDefinitionsRequest">
-    <xs:sequence>
-      <xs:element name="_containerDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_itemSubtypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listItemDefinitionsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:DefinitionsResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="DefinitionsResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="_definitions" nillable="true" type="tns:DefinitionResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="DefinitionResponse">
-    <xs:sequence>
-      <xs:element name="_definitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_subtypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_definitionName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_definitionDescription" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editTicket">
-    <xs:sequence>
-      <xs:element name="editTicketRequest" type="tns:EditTicketRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="EditTicketRequest">
-    <xs:sequence>
-      <xs:element name="_ticketDefinitionId" type="xs:long"/>
-      <xs:element name="_ticketId" type="xs:long"/>
-      <xs:element name="_ticketFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_contactDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_selectContact" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editTicketResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createContact">
-    <xs:sequence>
-      <xs:element name="createContactRequest" type="tns:CreateContactRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateContactRequest">
-    <xs:sequence>
-      <xs:element name="_addressBookDefinitionId" type="xs:long"/>
-      <xs:element name="_contactFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createContactResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listContainerDefinitions">
-    <xs:sequence>
-      <xs:element name="listContainerDefinitionsRequest" type="tns:ListContainerDefinitionsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="ListContainerDefinitionsRequest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="_containerSubtypeName" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="listContainerDefinitionsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:DefinitionsResponse"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createOrEditContact">
-    <xs:sequence>
-      <xs:element name="createOrEditContactRequest" type="tns:CreateOrEditContactRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateOrEditContactRequest">
-    <xs:sequence>
-      <xs:element name="_addressBookDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_contactId" type="xs:long"/>
-      <xs:element name="_contactFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createOrEditContactResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editCI">
-    <xs:sequence>
-      <xs:element name="editCIRequest" type="tns:EditCIRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="EditCIRequest">
-    <xs:sequence>
-      <xs:element name="_cmdbDefinitionId" type="xs:long"/>
-      <xs:element name="_ciId" type="xs:long"/>
-      <xs:element name="_ciFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-      <xs:element minOccurs="0" name="_status" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="editCIResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createTicket">
-    <xs:sequence>
-      <xs:element name="createTicketRequest" type="tns:CreateTicketRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateTicketRequest">
-    <xs:sequence>
-      <xs:element name="_ticketDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_ticketFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_contactDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_selectContact" type="xs:string"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createTicketResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createItem">
-    <xs:sequence>
-      <xs:element name="createItemRequest" type="tns:CreateItemRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateItemRequest">
-    <xs:sequence>
-      <xs:element name="_itemDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createItemResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createTicketAndLinkAssets">
-    <xs:sequence>
-      <xs:element name="createTicketAndLinkAssetsRequest" type="tns:CreateTicketAndLinkAssetsRequest"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="CreateTicketAndLinkAssetsRequest">
-    <xs:sequence>
-      <xs:element name="_ticketDefinitionId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
-      <xs:element minOccurs="0" name="_ticketFields" type="tns:itemFieldsList"/>
-      <xs:element minOccurs="0" name="_assigness" type="tns:valuesList"/>
-      <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
-      <xs:element name="_assetsList" type="tns:assetsList"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="assetsList">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="assets" nillable="true" type="tns:asset"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="asset">
-    <xs:sequence>
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="assetFields" nillable="true" type="tns:assetField"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="assetField">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
-      <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-<xs:complexType name="createTicketAndLinkAssetsResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:long"/>
-    </xs:sequence>
-  </xs:complexType>
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://externalapi.business.footprints.numarasoftware.com/" elementFormDefault="unqualified"
+           targetNamespace="http://externalapi.business.footprints.numarasoftware.com/" version="1.0">
+    <xs:element name="CreateCIRequest" type="tns:CreateCIRequest"/>
+    <xs:element name="CreateContactRequest" type="tns:CreateContactRequest"/>
+    <xs:element name="CreateItemRequest" type="tns:CreateItemRequest"/>
+    <xs:element name="CreateTicketAndLinkAssetsRequest" type="tns:CreateTicketAndLinkAssetsRequest"/>
+    <xs:element name="CreateTicketRequest" type="tns:CreateTicketRequest"/>
+    <xs:element name="DefinitionResponse" type="tns:DefinitionResponse"/>
+    <xs:element name="DefinitionsResponse" type="tns:DefinitionsResponse"/>
+    <xs:element name="DescriptionDetail" type="tns:DescriptionDetail"/>
+    <xs:element name="EditCIRequest" type="tns:EditCIRequest"/>
+    <xs:element name="EditContactRequest" type="tns:EditContactRequest"/>
+    <xs:element name="EditItemRequest" type="tns:EditItemRequest"/>
+    <xs:element name="EditTicketRequest" type="tns:EditTicketRequest"/>
+    <xs:element name="FieldDefinitionResponse" type="tns:FieldDefinitionResponse"/>
+    <xs:element name="FieldDefinitionsResponse" type="tns:FieldDefinitionsResponse"/>
+    <xs:element name="GetItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
+    <xs:element name="GetItemIdRequest" type="tns:GetItemIdRequest"/>
+    <xs:element name="RunSearchRequest" type="tns:RunSearchRequest"/>
+    <xs:element name="GetContactAssociatedTicketsRequest" type="tns:GetContactAssociatedTicketsRequest"/>
+    <xs:element name="ItemDetailsResponse" type="tns:ItemDetailsResponse"/>
+    <xs:element name="LinkItemsRequest" type="tns:LinkItemsRequest"/>
+    <xs:element name="LinkTicketsRequest" type="tns:LinkTicketsRequest"/>
+    <xs:element name="ListContainerDefinitionsRequest" type="tns:ListContainerDefinitionsRequest"/>
+    <xs:element name="ListFieldDefinitionsRequest" type="tns:ListFieldDefinitionsRequest"/>
+    <xs:element name="ListItemDefinitionsRequest" type="tns:ListItemDefinitionsRequest"/>
+    <xs:element name="ListQuickTemplatesRequest" type="tns:ListQuickTemplatesRequest"/>
+    <xs:element name="ListSearchesRequest" type="tns:ListSearchesRequest"/>
+    <xs:element name="QuickTemplate" type="tns:QuickTemplate"/>
+    <xs:element name="QuickTemplatesResponse" type="tns:QuickTemplatesResponse"/>
+    <xs:element name="TicketDetailsResponse" type="tns:TicketDetailsResponse"/>
+    <xs:element name="createCI" type="tns:createCI"/>
+    <xs:element name="createCIResponse" type="tns:createCIResponse"/>
+    <xs:element name="createContact" type="tns:createContact"/>
+    <xs:element name="createContactResponse" type="tns:createContactResponse"/>
+    <xs:element name="createItem" type="tns:createItem"/>
+    <xs:element name="createItemResponse" type="tns:createItemResponse"/>
+    <xs:element name="createOrEditContact" type="tns:createOrEditContact"/>
+    <xs:element name="createOrEditContactResponse" type="tns:createOrEditContactResponse"/>
+    <xs:element name="createTicket" type="tns:createTicket"/>
+    <xs:element name="createTicketAndLinkAssets" type="tns:createTicketAndLinkAssets"/>
+    <xs:element name="createTicketAndLinkAssetsResponse" type="tns:createTicketAndLinkAssetsResponse"/>
+    <xs:element name="createTicketResponse" type="tns:createTicketResponse"/>
+    <xs:element name="editCI" type="tns:editCI"/>
+    <xs:element name="editCIResponse" type="tns:editCIResponse"/>
+    <xs:element name="editContact" type="tns:editContact"/>
+    <xs:element name="editContactResponse" type="tns:editContactResponse"/>
+    <xs:element name="editItem" type="tns:editItem"/>
+    <xs:element name="editItemResponse" type="tns:editItemResponse"/>
+    <xs:element name="editTicket" type="tns:editTicket"/>
+    <xs:element name="editTicketResponse" type="tns:editTicketResponse"/>
+    <xs:element name="getItemDetails" type="tns:getItemDetails"/>
+    <xs:element name="getItemId" type="tns:getItemId"/>
+    <xs:element name="runSearch" type="tns:runSearch"/>
+    <xs:element name="getContactAssociatedTickets" type="tns:getContactAssociatedTickets"/>
+    <xs:element name="getItemDetailsResponse" type="tns:getItemDetailsResponse"/>
+    <xs:element name="getItemIdResponse" type="tns:getItemIdResponse"/>
+    <xs:element name="runSearchResponse" type="tns:runSearchResponse"/>
+    <xs:element name="getContactAssociatedTicketsResponse" type="tns:getContactAssociatedTicketsResponse"/>
+    <xs:element name="getTicketDetails" type="tns:getTicketDetails"/>
+    <xs:element name="getTicketDetailsResponse" type="tns:getTicketDetailsResponse"/>
+    <xs:element name="linkItems" type="tns:linkItems"/>
+    <xs:element name="linkItemsResponse" type="tns:linkItemsResponse"/>
+    <xs:element name="linkTickets" type="tns:linkTickets"/>
+    <xs:element name="linkTicketsResponse" type="tns:linkTicketsResponse"/>
+    <xs:element name="listContainerDefinitions" type="tns:listContainerDefinitions"/>
+    <xs:element name="listContainerDefinitionsResponse" type="tns:listContainerDefinitionsResponse"/>
+    <xs:element name="listFieldDefinitions" type="tns:listFieldDefinitions"/>
+    <xs:element name="listFieldDefinitionsResponse" type="tns:listFieldDefinitionsResponse"/>
+    <xs:element name="listItemDefinitions" type="tns:listItemDefinitions"/>
+    <xs:element name="listItemDefinitionsResponse" type="tns:listItemDefinitionsResponse"/>
+    <xs:element name="listQuickTemplates" type="tns:listQuickTemplates"/>
+    <xs:element name="listSearches" type="tns:listSearches"/>
+    <xs:element name="listQuickTemplatesResponse" type="tns:listQuickTemplatesResponse"/>
+    <xs:element name="listSearchesResponse" type="tns:listSearchesResponse"/>
+    <xs:complexType name="createCI">
+        <xs:sequence>
+            <xs:element name="createCIRequest" type="tns:CreateCIRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateCIRequest">
+        <xs:sequence>
+            <xs:element name="_cmdbDefinitionId" type="xs:long"/>
+            <xs:element name="_ciFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+            <xs:element minOccurs="0" name="_status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="itemFieldsList">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="itemFields" nillable="true" type="tns:itemField"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="itemField">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+            <xs:element minOccurs="0" name="fieldValue" type="tns:valuesList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="valuesList">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createCIResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="linkItems">
+        <xs:sequence>
+            <xs:element name="linkItemsRequest" type="tns:LinkItemsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LinkItemsRequest">
+        <xs:sequence>
+            <xs:element name="_firstItemDefinitionId" type="xs:long"/>
+            <xs:element name="_firstItemId" type="xs:long"/>
+            <xs:element name="_secondItemDefinitionId" type="xs:long"/>
+            <xs:element name="_secondItemId" type="xs:long"/>
+            <xs:element name="_linkTypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="linkItemsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getTicketDetails">
+        <xs:sequence>
+            <xs:element name="getItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetItemDetailsRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element name="_itemId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_fieldsToRetrieve" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetItemId">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element name="_itemNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RunSearchRequest">
+        <xs:sequence>
+            <xs:element name="_searchId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetContactAssociatedTicketsRequest">
+        <xs:sequence>
+            <xs:element name="_contactDefinitionId" type="xs:long"/>
+            <xs:element name="_primaryKeyValue" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getTicketDetailsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:TicketDetailsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TicketDetailsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_ticketNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+            <xs:element minOccurs="0" name="_createDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="_createTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="_title" type="xs:string"/>
+            <xs:element minOccurs="0" name="_status" type="xs:string"/>
+            <xs:element minOccurs="0" name="_priority" type="xs:string"/>
+            <xs:element minOccurs="0" name="_description" type="xs:string"/>
+            <xs:element minOccurs="0" name="_allDescriptionsList" type="tns:descriptionsDetailList"/>
+            <xs:element minOccurs="0" name="_allDescriptionsText" type="xs:string"/>
+            <xs:element minOccurs="0" name="_descriptionStamp" type="xs:string"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_customFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_history" type="tns:history"/>
+            <xs:element minOccurs="0" name="_editors" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_lastEditDate" type="xs:string"/>
+            <xs:element minOccurs="0" name="_lastEditTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="_mostRecentEdit" type="tns:consolidatedItemHistoryEvent"/>
+            <xs:element minOccurs="0" name="_emailRecipients" type="tns:valuesList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="descriptionsDetailList">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="descriptionsDetail" nillable="true"
+                        type="tns:DescriptionDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DescriptionDetail">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_stamp" type="xs:string"/>
+            <xs:element minOccurs="0" name="_data" type="xs:string"/>
+            <xs:element minOccurs="0" name="_userName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="history">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="historyEvents" nillable="true"
+                        type="tns:consolidatedItemHistoryEvent"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="consolidatedItemHistoryEvent">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_eventStarter" type="xs:string"/>
+            <xs:element minOccurs="0" name="_date" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_events" nillable="true" type="tns:itemHistoryEvent"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="itemHistoryEvent">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="action" type="xs:string"/>
+            <xs:element minOccurs="0" name="date" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldsChange" nillable="true" type="tns:fieldChange"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="fieldChange">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+            <xs:element minOccurs="0" name="newValue" type="xs:anyType"/>
+            <xs:element minOccurs="0" name="oldValue" type="xs:anyType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editContact">
+        <xs:sequence>
+            <xs:element name="editContactRequest" type="tns:EditContactRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EditContactRequest">
+        <xs:sequence>
+            <xs:element name="_addressBookDefinitionId" type="xs:long"/>
+            <xs:element name="_contactId" type="xs:long"/>
+            <xs:element name="_contactFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editContactResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="linkTickets">
+        <xs:sequence>
+            <xs:element name="linkTicketsRequest" type="tns:LinkTicketsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LinkTicketsRequest">
+        <xs:sequence>
+            <xs:element name="_firstTicketDefinitionId" type="xs:long"/>
+            <xs:element name="_firstTicketId" type="xs:long"/>
+            <xs:element name="_secondTicketDefinitionId" type="xs:long"/>
+            <xs:element name="_secondTicketId" type="xs:long"/>
+            <xs:element name="_linkTypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="linkTicketsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getItemDetails">
+        <xs:sequence>
+            <xs:element name="getItemDetailsRequest" type="tns:GetItemDetailsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getItemId">
+        <xs:sequence>
+            <xs:element name="getItemIdRequest" type="tns:GetItemIdRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GetItemIdRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element name="_itemNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="runSearch">
+        <xs:sequence>
+            <xs:element name="runSearchRequest" type="tns:RunSearchRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getContactAssociatedTickets">
+        <xs:sequence>
+            <xs:element name="getContactAssociatedTicketsRequest" type="tns:GetContactAssociatedTicketsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getItemDetailsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:ItemDetailsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getItemIdResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="runSearchResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:RunSearchResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getContactAssociatedTicketsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:RunSearchResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ItemDetailsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RunSearchResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_items" type="tns:SearchRow"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SearchRow">
+        <xs:sequence>
+            <xs:element name="_containerDefinitionId" type="xs:long"/>
+            <xs:element name="_containerDefinitionName" type="xs:string"/>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element name="_itemDefinitionName" type="xs:string"/>
+            <xs:element name="_itemId" type="xs:long"/>
+            <xs:element name="_itemFields" type="tns:itemFieldsList"/>
+            <xs:element name="_assignees" type="tns:valuesList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listQuickTemplates">
+        <xs:sequence>
+            <xs:element name="listQuickTemplatesRequest" type="tns:ListQuickTemplatesRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listSearches">
+        <xs:sequence>
+            <xs:element name="listSearchesRequest" type="tns:ListSearchesRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListQuickTemplatesRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListSearchesRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_itemTypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listQuickTemplatesResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:QuickTemplatesResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listSearchesResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:SearchesResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QuickTemplatesResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_quickTemplates" nillable="true"
+                        type="tns:QuickTemplate"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SearchesResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_searches" nillable="true" type="tns:Search"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QuickTemplate">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_itemDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_templateId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_templateName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_templateDescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Search">
+        <xs:sequence>
+            <xs:element name="_searchId" type="xs:long"/>
+            <xs:element name="_searchName" type="xs:string"/>
+            <xs:element name="_searchDescription" type="xs:string"/>
+            <xs:element name="_searchType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listFieldDefinitions">
+        <xs:sequence>
+            <xs:element name="listFieldDefinitionsRequest" type="tns:ListFieldDefinitionsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListFieldDefinitionsRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listFieldDefinitionsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:FieldDefinitionsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FieldDefinitionsResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_fieldDefinitions" nillable="true"
+                        type="tns:FieldDefinitionResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FieldDefinitionResponse">
+        <xs:sequence>
+            <xs:element name="_definitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_fieldExternalName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_fieldType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editItem">
+        <xs:sequence>
+            <xs:element name="editItemRequest" type="tns:EditItemRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EditItemRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element name="_itemId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editItemResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listItemDefinitions">
+        <xs:sequence>
+            <xs:element name="listItemDefinitionsRequest" type="tns:ListItemDefinitionsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListItemDefinitionsRequest">
+        <xs:sequence>
+            <xs:element name="_containerDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_itemSubtypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listItemDefinitionsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:DefinitionsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DefinitionsResponse">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="_definitions" nillable="true"
+                        type="tns:DefinitionResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DefinitionResponse">
+        <xs:sequence>
+            <xs:element name="_definitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_subtypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_definitionName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_definitionDescription" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editTicket">
+        <xs:sequence>
+            <xs:element name="editTicketRequest" type="tns:EditTicketRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EditTicketRequest">
+        <xs:sequence>
+            <xs:element name="_ticketDefinitionId" type="xs:long"/>
+            <xs:element name="_ticketId" type="xs:long"/>
+            <xs:element name="_ticketFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_contactDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_selectContact" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editTicketResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createContact">
+        <xs:sequence>
+            <xs:element name="createContactRequest" type="tns:CreateContactRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateContactRequest">
+        <xs:sequence>
+            <xs:element name="_addressBookDefinitionId" type="xs:long"/>
+            <xs:element name="_contactFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createContactResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listContainerDefinitions">
+        <xs:sequence>
+            <xs:element name="listContainerDefinitionsRequest" type="tns:ListContainerDefinitionsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListContainerDefinitionsRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="_containerSubtypeName" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="listContainerDefinitionsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="tns:DefinitionsResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createOrEditContact">
+        <xs:sequence>
+            <xs:element name="createOrEditContactRequest" type="tns:CreateOrEditContactRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateOrEditContactRequest">
+        <xs:sequence>
+            <xs:element name="_addressBookDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_contactId" type="xs:long"/>
+            <xs:element name="_contactFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createOrEditContactResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editCI">
+        <xs:sequence>
+            <xs:element name="editCIRequest" type="tns:EditCIRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EditCIRequest">
+        <xs:sequence>
+            <xs:element name="_cmdbDefinitionId" type="xs:long"/>
+            <xs:element name="_ciId" type="xs:long"/>
+            <xs:element name="_ciFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+            <xs:element minOccurs="0" name="_status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="editCIResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createTicket">
+        <xs:sequence>
+            <xs:element name="createTicketRequest" type="tns:CreateTicketRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateTicketRequest">
+        <xs:sequence>
+            <xs:element name="_ticketDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_ticketFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_contactDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_selectContact" type="xs:string"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createTicketResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createItem">
+        <xs:sequence>
+            <xs:element name="createItemRequest" type="tns:CreateItemRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateItemRequest">
+        <xs:sequence>
+            <xs:element name="_itemDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_itemFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assignees" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createItemResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createTicketAndLinkAssets">
+        <xs:sequence>
+            <xs:element name="createTicketAndLinkAssetsRequest" type="tns:CreateTicketAndLinkAssetsRequest"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CreateTicketAndLinkAssetsRequest">
+        <xs:sequence>
+            <xs:element name="_ticketDefinitionId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_quickTemplateId" type="xs:long"/>
+            <xs:element minOccurs="0" name="_ticketFields" type="tns:itemFieldsList"/>
+            <xs:element minOccurs="0" name="_assigness" type="tns:valuesList"/>
+            <xs:element minOccurs="0" name="_submitter" type="xs:string"/>
+            <xs:element name="_assetsList" type="tns:assetsList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="assetsList">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="assets" nillable="true" type="tns:asset"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="asset">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="assetFields" nillable="true" type="tns:assetField"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="assetField">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+            <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createTicketAndLinkAssetsResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

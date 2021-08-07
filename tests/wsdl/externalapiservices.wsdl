@@ -1,501 +1,528 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="ExternalApiService" targetNamespace="http://externalapi.business.footprints.numarasoftware.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://externalapi.business.footprints.numarasoftware.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
-  <wsdl:types>
-    <schema xmlns="http://www.w3.org/2001/XMLSchema">
-<import namespace="http://externalapi.business.footprints.numarasoftware.com/" schemaLocation="externalapiservices_schema.xsd"/>
-</schema>
-  </wsdl:types>
-  <wsdl:message name="getItemDetailsResponse">
-    <wsdl:part name="parameters" element="tns:getItemDetailsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createContactResponse">
-    <wsdl:part name="parameters" element="tns:createContactResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listContainerDefinitions">
-    <wsdl:part name="parameters" element="tns:listContainerDefinitions">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editTicket">
-    <wsdl:part name="parameters" element="tns:editTicket">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createContact">
-    <wsdl:part name="parameters" element="tns:createContact">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editTicketResponse">
-    <wsdl:part name="parameters" element="tns:editTicketResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createCI">
-    <wsdl:part name="parameters" element="tns:createCI">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editContact">
-    <wsdl:part name="parameters" element="tns:editContact">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createTicketResponse">
-    <wsdl:part name="parameters" element="tns:createTicketResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editItemResponse">
-    <wsdl:part name="parameters" element="tns:editItemResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editItem">
-    <wsdl:part name="parameters" element="tns:editItem">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="linkTicketsResponse">
-    <wsdl:part name="parameters" element="tns:linkTicketsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createCIResponse">
-    <wsdl:part name="parameters" element="tns:createCIResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createTicket">
-    <wsdl:part name="parameters" element="tns:createTicket">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getTicketDetailsResponse">
-    <wsdl:part name="parameters" element="tns:getTicketDetailsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createOrEditContactResponse">
-    <wsdl:part name="parameters" element="tns:createOrEditContactResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listContainerDefinitionsResponse">
-    <wsdl:part name="parameters" element="tns:listContainerDefinitionsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createTicketAndLinkAssetsResponse">
-    <wsdl:part name="parameters" element="tns:createTicketAndLinkAssetsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listFieldDefinitions">
-    <wsdl:part name="parameters" element="tns:listFieldDefinitions">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createTicketAndLinkAssets">
-    <wsdl:part name="parameters" element="tns:createTicketAndLinkAssets">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editCI">
-    <wsdl:part name="parameters" element="tns:editCI">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getItemDetails">
-    <wsdl:part name="parameters" element="tns:getItemDetails">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="runSearch">
-    <wsdl:part name="parameters" element="tns:runSearch">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getContactAssociatedTickets">
-    <wsdl:part name="parameters" element="tns:getContactAssociatedTickets">
-    </wsdl:part>
-  </wsdl:message>
-   <wsdl:message name="runSearchResponse">
-    <wsdl:part name="parameters" element="tns:runSearchResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getContactAssociatedTicketsResponse">
-    <wsdl:part name="parameters" element="tns:getContactAssociatedTicketsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editContactResponse">
-    <wsdl:part name="parameters" element="tns:editContactResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getTicketDetails">
-    <wsdl:part name="parameters" element="tns:getTicketDetails">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createItem">
-    <wsdl:part name="parameters" element="tns:createItem">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listItemDefinitionsResponse">
-    <wsdl:part name="parameters" element="tns:listItemDefinitionsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createItemResponse">
-    <wsdl:part name="parameters" element="tns:createItemResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="editCIResponse">
-    <wsdl:part name="parameters" element="tns:editCIResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="linkItems">
-    <wsdl:part name="parameters" element="tns:linkItems">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listItemDefinitions">
-    <wsdl:part name="parameters" element="tns:listItemDefinitions">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="createOrEditContact">
-    <wsdl:part name="parameters" element="tns:createOrEditContact">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="linkTickets">
-    <wsdl:part name="parameters" element="tns:linkTickets">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listQuickTemplates">
-    <wsdl:part name="parameters" element="tns:listQuickTemplates">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listSearches">
-    <wsdl:part name="parameters" element="tns:listSearches">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listQuickTemplatesResponse">
-    <wsdl:part name="parameters" element="tns:listQuickTemplatesResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listSearchesResponse">
-    <wsdl:part name="parameters" element="tns:listSearchesResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listFieldDefinitionsResponse">
-    <wsdl:part name="parameters" element="tns:listFieldDefinitionsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="linkItemsResponse">
-    <wsdl:part name="parameters" element="tns:linkItemsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="ExternalApiService">
-    <wsdl:operation name="createCI">
-      <wsdl:input name="createCI" message="tns:createCI">
-    </wsdl:input>
-      <wsdl:output name="createCIResponse" message="tns:createCIResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="linkItems">
-      <wsdl:input name="linkItems" message="tns:linkItems">
-    </wsdl:input>
-      <wsdl:output name="linkItemsResponse" message="tns:linkItemsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getTicketDetails">
-      <wsdl:input name="getTicketDetails" message="tns:getTicketDetails">
-    </wsdl:input>
-      <wsdl:output name="getTicketDetailsResponse" message="tns:getTicketDetailsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editContact">
-      <wsdl:input name="editContact" message="tns:editContact">
-    </wsdl:input>
-      <wsdl:output name="editContactResponse" message="tns:editContactResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="linkTickets">
-      <wsdl:input name="linkTickets" message="tns:linkTickets">
-    </wsdl:input>
-      <wsdl:output name="linkTicketsResponse" message="tns:linkTicketsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getItemDetails">
-      <wsdl:input name="getItemDetails" message="tns:getItemDetails">
-    </wsdl:input>
-      <wsdl:output name="getItemDetailsResponse" message="tns:getItemDetailsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="runSearch">
-      <wsdl:input name="runSearch" message="tns:runSearch">
-    </wsdl:input>
-      <wsdl:output name="runSearchResponse" message="tns:runSearchResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getContactAssociatedTickets">
-      <wsdl:input name="getContactAssociatedTickets" message="tns:getContactAssociatedTickets">
-    </wsdl:input>
-      <wsdl:output name="getContactAssociatedTicketsResponse" message="tns:getContactAssociatedTicketsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listQuickTemplates">
-      <wsdl:input name="listQuickTemplates" message="tns:listQuickTemplates">
-    </wsdl:input>
-      <wsdl:output name="listQuickTemplatesResponse" message="tns:listQuickTemplatesResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listSearches">
-      <wsdl:input name="listSearches" message="tns:listSearches">
-    </wsdl:input>
-      <wsdl:output name="listSearchesResponse" message="tns:listSearchesResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listFieldDefinitions">
-      <wsdl:input name="listFieldDefinitions" message="tns:listFieldDefinitions">
-    </wsdl:input>
-      <wsdl:output name="listFieldDefinitionsResponse" message="tns:listFieldDefinitionsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editItem">
-      <wsdl:input name="editItem" message="tns:editItem">
-    </wsdl:input>
-      <wsdl:output name="editItemResponse" message="tns:editItemResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listItemDefinitions">
-      <wsdl:input name="listItemDefinitions" message="tns:listItemDefinitions">
-    </wsdl:input>
-      <wsdl:output name="listItemDefinitionsResponse" message="tns:listItemDefinitionsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editTicket">
-      <wsdl:input name="editTicket" message="tns:editTicket">
-    </wsdl:input>
-      <wsdl:output name="editTicketResponse" message="tns:editTicketResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createContact">
-      <wsdl:input name="createContact" message="tns:createContact">
-    </wsdl:input>
-      <wsdl:output name="createContactResponse" message="tns:createContactResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listContainerDefinitions">
-      <wsdl:input name="listContainerDefinitions" message="tns:listContainerDefinitions">
-    </wsdl:input>
-      <wsdl:output name="listContainerDefinitionsResponse" message="tns:listContainerDefinitionsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createOrEditContact">
-      <wsdl:input name="createOrEditContact" message="tns:createOrEditContact">
-    </wsdl:input>
-      <wsdl:output name="createOrEditContactResponse" message="tns:createOrEditContactResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editCI">
-      <wsdl:input name="editCI" message="tns:editCI">
-    </wsdl:input>
-      <wsdl:output name="editCIResponse" message="tns:editCIResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createTicket">
-      <wsdl:input name="createTicket" message="tns:createTicket">
-    </wsdl:input>
-      <wsdl:output name="createTicketResponse" message="tns:createTicketResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createItem">
-      <wsdl:input name="createItem" message="tns:createItem">
-    </wsdl:input>
-      <wsdl:output name="createItemResponse" message="tns:createItemResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createTicketAndLinkAssets">
-      <wsdl:input name="createTicketAndLinkAssets" message="tns:createTicketAndLinkAssets">
-    </wsdl:input>
-      <wsdl:output name="createTicketAndLinkAssetsResponse" message="tns:createTicketAndLinkAssetsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="ExternalApiServiceSoapBinding" type="tns:ExternalApiService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="createCI">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createCI">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createCIResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="linkItems">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="linkItems">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="linkItemsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getTicketDetails">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getTicketDetails">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getTicketDetailsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editContact">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="editContact">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="editContactResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getItemDetails">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getItemDetails">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getItemDetailsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="linkTickets">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="linkTickets">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="linkTicketsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listQuickTemplates">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listQuickTemplates">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listQuickTemplatesResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listSearches">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listSearches">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listSearchesResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editItem">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="editItem">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="editItemResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listFieldDefinitions">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listFieldDefinitions">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listFieldDefinitionsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="runSearch">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="runSearch">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="runSearchResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getContactAssociatedTickets">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getContactAssociatedTickets">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getContactAssociatedTicketsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createContact">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createContact">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createContactResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editTicket">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="editTicket">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="editTicketResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listItemDefinitions">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listItemDefinitions">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listItemDefinitionsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="listContainerDefinitions">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listContainerDefinitions">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listContainerDefinitionsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createOrEditContact">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createOrEditContact">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createOrEditContactResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="editCI">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="editCI">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="editCIResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createTicket">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createTicket">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createTicketResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createItem">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createItem">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createItemResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="createTicketAndLinkAssets">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="createTicketAndLinkAssets">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="createTicketAndLinkAssetsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="ExternalApiService">
-    <wsdl:port name="ExternalApiServicePort" binding="tns:ExternalApiServiceSoapBinding">
-      <soap:address location="http://localhost:8080/footprints/externalapisoap/ExternalApiServicePort"/>
-    </wsdl:port>
-  </wsdl:service>
+<wsdl:definitions name="ExternalApiService" targetNamespace="http://externalapi.business.footprints.numarasoftware.com/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://externalapi.business.footprints.numarasoftware.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://externalapi.business.footprints.numarasoftware.com/"
+                    schemaLocation="externalapiservices_schema.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="getItemDetailsResponse">
+        <wsdl:part name="parameters" element="tns:getItemDetailsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getItemIdResponse">
+        <wsdl:part name="parameters" element="tns:getItemIdResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createContactResponse">
+        <wsdl:part name="parameters" element="tns:createContactResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listContainerDefinitions">
+        <wsdl:part name="parameters" element="tns:listContainerDefinitions">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editTicket">
+        <wsdl:part name="parameters" element="tns:editTicket">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createContact">
+        <wsdl:part name="parameters" element="tns:createContact">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editTicketResponse">
+        <wsdl:part name="parameters" element="tns:editTicketResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createCI">
+        <wsdl:part name="parameters" element="tns:createCI">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editContact">
+        <wsdl:part name="parameters" element="tns:editContact">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createTicketResponse">
+        <wsdl:part name="parameters" element="tns:createTicketResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editItemResponse">
+        <wsdl:part name="parameters" element="tns:editItemResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editItem">
+        <wsdl:part name="parameters" element="tns:editItem">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="linkTicketsResponse">
+        <wsdl:part name="parameters" element="tns:linkTicketsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createCIResponse">
+        <wsdl:part name="parameters" element="tns:createCIResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createTicket">
+        <wsdl:part name="parameters" element="tns:createTicket">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getTicketDetailsResponse">
+        <wsdl:part name="parameters" element="tns:getTicketDetailsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createOrEditContactResponse">
+        <wsdl:part name="parameters" element="tns:createOrEditContactResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listContainerDefinitionsResponse">
+        <wsdl:part name="parameters" element="tns:listContainerDefinitionsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createTicketAndLinkAssetsResponse">
+        <wsdl:part name="parameters" element="tns:createTicketAndLinkAssetsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listFieldDefinitions">
+        <wsdl:part name="parameters" element="tns:listFieldDefinitions">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createTicketAndLinkAssets">
+        <wsdl:part name="parameters" element="tns:createTicketAndLinkAssets">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editCI">
+        <wsdl:part name="parameters" element="tns:editCI">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getItemDetails">
+        <wsdl:part name="parameters" element="tns:getItemDetails">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getItemId">
+        <wsdl:part name="parameters" element="tns:getItemId">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="runSearch">
+        <wsdl:part name="parameters" element="tns:runSearch">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getContactAssociatedTickets">
+        <wsdl:part name="parameters" element="tns:getContactAssociatedTickets">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="runSearchResponse">
+        <wsdl:part name="parameters" element="tns:runSearchResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getContactAssociatedTicketsResponse">
+        <wsdl:part name="parameters" element="tns:getContactAssociatedTicketsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editContactResponse">
+        <wsdl:part name="parameters" element="tns:editContactResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getTicketDetails">
+        <wsdl:part name="parameters" element="tns:getTicketDetails">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createItem">
+        <wsdl:part name="parameters" element="tns:createItem">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listItemDefinitionsResponse">
+        <wsdl:part name="parameters" element="tns:listItemDefinitionsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createItemResponse">
+        <wsdl:part name="parameters" element="tns:createItemResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="editCIResponse">
+        <wsdl:part name="parameters" element="tns:editCIResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="linkItems">
+        <wsdl:part name="parameters" element="tns:linkItems">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listItemDefinitions">
+        <wsdl:part name="parameters" element="tns:listItemDefinitions">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createOrEditContact">
+        <wsdl:part name="parameters" element="tns:createOrEditContact">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="linkTickets">
+        <wsdl:part name="parameters" element="tns:linkTickets">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listQuickTemplates">
+        <wsdl:part name="parameters" element="tns:listQuickTemplates">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listSearches">
+        <wsdl:part name="parameters" element="tns:listSearches">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listQuickTemplatesResponse">
+        <wsdl:part name="parameters" element="tns:listQuickTemplatesResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listSearchesResponse">
+        <wsdl:part name="parameters" element="tns:listSearchesResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listFieldDefinitionsResponse">
+        <wsdl:part name="parameters" element="tns:listFieldDefinitionsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="linkItemsResponse">
+        <wsdl:part name="parameters" element="tns:linkItemsResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ExternalApiService">
+        <wsdl:operation name="createCI">
+            <wsdl:input name="createCI" message="tns:createCI">
+            </wsdl:input>
+            <wsdl:output name="createCIResponse" message="tns:createCIResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="linkItems">
+            <wsdl:input name="linkItems" message="tns:linkItems">
+            </wsdl:input>
+            <wsdl:output name="linkItemsResponse" message="tns:linkItemsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicketDetails">
+            <wsdl:input name="getTicketDetails" message="tns:getTicketDetails">
+            </wsdl:input>
+            <wsdl:output name="getTicketDetailsResponse" message="tns:getTicketDetailsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editContact">
+            <wsdl:input name="editContact" message="tns:editContact">
+            </wsdl:input>
+            <wsdl:output name="editContactResponse" message="tns:editContactResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="linkTickets">
+            <wsdl:input name="linkTickets" message="tns:linkTickets">
+            </wsdl:input>
+            <wsdl:output name="linkTicketsResponse" message="tns:linkTicketsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItemDetails">
+            <wsdl:input name="getItemDetails" message="tns:getItemDetails">
+            </wsdl:input>
+            <wsdl:output name="getItemDetailsResponse" message="tns:getItemDetailsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItemId">
+            <wsdl:input name="getItemId" message="tns:getItemId">
+            </wsdl:input>
+            <wsdl:output name="getItemIdResponse" message="tns:getItemIdResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="runSearch">
+            <wsdl:input name="runSearch" message="tns:runSearch">
+            </wsdl:input>
+            <wsdl:output name="runSearchResponse" message="tns:runSearchResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getContactAssociatedTickets">
+            <wsdl:input name="getContactAssociatedTickets" message="tns:getContactAssociatedTickets">
+            </wsdl:input>
+            <wsdl:output name="getContactAssociatedTicketsResponse" message="tns:getContactAssociatedTicketsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listQuickTemplates">
+            <wsdl:input name="listQuickTemplates" message="tns:listQuickTemplates">
+            </wsdl:input>
+            <wsdl:output name="listQuickTemplatesResponse" message="tns:listQuickTemplatesResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listSearches">
+            <wsdl:input name="listSearches" message="tns:listSearches">
+            </wsdl:input>
+            <wsdl:output name="listSearchesResponse" message="tns:listSearchesResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listFieldDefinitions">
+            <wsdl:input name="listFieldDefinitions" message="tns:listFieldDefinitions">
+            </wsdl:input>
+            <wsdl:output name="listFieldDefinitionsResponse" message="tns:listFieldDefinitionsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editItem">
+            <wsdl:input name="editItem" message="tns:editItem">
+            </wsdl:input>
+            <wsdl:output name="editItemResponse" message="tns:editItemResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listItemDefinitions">
+            <wsdl:input name="listItemDefinitions" message="tns:listItemDefinitions">
+            </wsdl:input>
+            <wsdl:output name="listItemDefinitionsResponse" message="tns:listItemDefinitionsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editTicket">
+            <wsdl:input name="editTicket" message="tns:editTicket">
+            </wsdl:input>
+            <wsdl:output name="editTicketResponse" message="tns:editTicketResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createContact">
+            <wsdl:input name="createContact" message="tns:createContact">
+            </wsdl:input>
+            <wsdl:output name="createContactResponse" message="tns:createContactResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listContainerDefinitions">
+            <wsdl:input name="listContainerDefinitions" message="tns:listContainerDefinitions">
+            </wsdl:input>
+            <wsdl:output name="listContainerDefinitionsResponse" message="tns:listContainerDefinitionsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createOrEditContact">
+            <wsdl:input name="createOrEditContact" message="tns:createOrEditContact">
+            </wsdl:input>
+            <wsdl:output name="createOrEditContactResponse" message="tns:createOrEditContactResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editCI">
+            <wsdl:input name="editCI" message="tns:editCI">
+            </wsdl:input>
+            <wsdl:output name="editCIResponse" message="tns:editCIResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createTicket">
+            <wsdl:input name="createTicket" message="tns:createTicket">
+            </wsdl:input>
+            <wsdl:output name="createTicketResponse" message="tns:createTicketResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createItem">
+            <wsdl:input name="createItem" message="tns:createItem">
+            </wsdl:input>
+            <wsdl:output name="createItemResponse" message="tns:createItemResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createTicketAndLinkAssets">
+            <wsdl:input name="createTicketAndLinkAssets" message="tns:createTicketAndLinkAssets">
+            </wsdl:input>
+            <wsdl:output name="createTicketAndLinkAssetsResponse" message="tns:createTicketAndLinkAssetsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ExternalApiServiceSoapBinding" type="tns:ExternalApiService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createCI">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createCI">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createCIResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="linkItems">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="linkItems">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="linkItemsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getTicketDetails">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getTicketDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getTicketDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editContact">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="editContact">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="editContactResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItemDetails">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getItemDetails">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getItemDetailsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItemId">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getItemId">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getItemIdResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="linkTickets">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="linkTickets">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="linkTicketsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listQuickTemplates">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listQuickTemplates">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listQuickTemplatesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listSearches">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listSearches">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listSearchesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editItem">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="editItem">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="editItemResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listFieldDefinitions">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listFieldDefinitions">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listFieldDefinitionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="runSearch">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="runSearch">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="runSearchResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getContactAssociatedTickets">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getContactAssociatedTickets">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getContactAssociatedTicketsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createContact">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createContact">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createContactResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editTicket">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="editTicket">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="editTicketResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listItemDefinitions">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listItemDefinitions">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listItemDefinitionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listContainerDefinitions">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="listContainerDefinitions">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="listContainerDefinitionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createOrEditContact">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createOrEditContact">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createOrEditContactResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="editCI">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="editCI">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="editCIResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createTicket">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createTicket">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createTicketResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createItem">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createItem">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createItemResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createTicketAndLinkAssets">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="createTicketAndLinkAssets">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="createTicketAndLinkAssetsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ExternalApiService">
+        <wsdl:port name="ExternalApiServicePort" binding="tns:ExternalApiServiceSoapBinding">
+            <soap:address location="http://localhost:8080/footprints/externalapisoap/ExternalApiServicePort"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

@@ -17,7 +17,7 @@ class FootprintsBaseException(Exception):
         :param message: The message string, dictionary or object containing
         more information about the exception.
         """
-        parsed_message = "An unspecified error occured."
+        parsed_message = "An unspecified error occurred."
         parsed_status_code = HTTPStatus.NOT_ACCEPTABLE
 
         if message and isinstance(message, dict):
@@ -36,7 +36,7 @@ class FootprintsException(FootprintsBaseException):
     """Main class for all errors returned by the Footprints API."""
 
     status_code = HTTPStatus.NOT_IMPLEMENTED
-    message = "An unexpected error occured."
+    message = "An unexpected error occurred."
 
     def __init__(
         self,
@@ -46,9 +46,7 @@ class FootprintsException(FootprintsBaseException):
         """Init function."""
         if message and isinstance(message, object):
             try:
-                message = dict(
-                    message=message.__dict__.get("message", self.message)
-                )
+                message = dict(message=message.__dict__.get("message", self.message))
             except AttributeError:
                 pass
 
@@ -69,10 +67,7 @@ class ItemDefinitionDoesNotExist(FootprintsException):
     """The item definition was not found."""
 
     status_code = HTTPStatus.BAD_REQUEST
-    message = (
-        "The item definition was not found. "
-        "Please check the item definition."
-    )
+    message = "The item definition was not found. Please check the item definition."
 
 
 class BadRequest(FootprintsException):
