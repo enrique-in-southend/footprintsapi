@@ -1,9 +1,5 @@
 name: footprintsapi
-
-on:
-  push:
-    branches: [ "master" ]
-
+on: [ push, pull_request ]
 jobs:
   build:
     runs-on: ${{ matrix.os }}
