@@ -2,6 +2,7 @@
 
 import json
 from typing import Optional, Union
+from requests import Response
 
 from .mixins import (
     COMMON_ATTRS,
@@ -123,10 +124,10 @@ class Ticket(FootprintsObject, CustomAttributesMixin):
         assignees: Optional[list] = None,
         submitter: Optional[str] = None,
         **kwargs,
-    ) -> str:
+    ) -> Response:
         """Update a ticket.
 
-        :param ticket_fields: Dict with itemfield list dicts with itemFields and itemValues.
+        :param ticket_fields: Dict with item field list dicts with itemFields and itemValues.
 
         :param ticket_id: The id of the ticket to edit. (Optional as
         ticket object already has its own ticket id)
@@ -167,7 +168,7 @@ class Item(FootprintsObject):
         assignees: Optional[list] = None,
         submitter: Optional[str] = None,
         **kwargs,
-    ) -> str:
+    ) -> Response:
         """Update an Item.
 
         :param item_fields: List of dicts with itemFields and itemValues.

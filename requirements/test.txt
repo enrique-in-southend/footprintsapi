@@ -1,4 +1,4 @@
 -r base.txt
 
-coverage==4.5.3
-requests-mock==1.6.0
+coverage==5.5
+requests-mock==1.9.3
