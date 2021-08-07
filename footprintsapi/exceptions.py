@@ -46,9 +46,7 @@ class FootprintsException(FootprintsBaseException):
         """Init function."""
         if message and isinstance(message, object):
             try:
-                message = dict(
-                    message=message.__dict__.get("message", self.message)
-                )
+                message = dict(message=message.__dict__.get("message", self.message))
             except AttributeError:
                 pass
 
@@ -69,10 +67,7 @@ class ItemDefinitionDoesNotExist(FootprintsException):
     """The item definition was not found."""
 
     status_code = HTTPStatus.BAD_REQUEST
-    message = (
-        "The item definition was not found. "
-        "Please check the item definition."
-    )
+    message = "The item definition was not found. " "Please check the item definition."
 
 
 class BadRequest(FootprintsException):
