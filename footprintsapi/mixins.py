@@ -412,7 +412,7 @@ class CreateTicketAndLinkAssets:
 
         :param ticket_fields: List of dicts with itemFields and itemValues.
 
-        :param: assets_list: List of dicts with fieldNames and fieldValues.
+        :param assets_list: List of dicts with fieldNames and fieldValues.
 
         :param quick_template_id: The quick template id to use.
 
