@@ -31,7 +31,7 @@ setup(
     author_email="jesus_enrique@rocketmail.com",
     license="MIT License",
     packages=find_packages(),
-    install_requires=["zeep~=4.0.0", "requests~=2.26.0"],
+    install_requires=["zeep~=4.0.0", "requests>=2.26,<2.32"],
     zip_safe=False,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
